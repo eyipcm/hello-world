@@ -1,17 +1,17 @@
 package com.aypc.hello;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class HelloWorld {
 
-	private static Log log = LogFactory.getLog(HelloWorld.class);
+	private static Logger log = LogManager.getLogger(HelloWorld.class);
 	
 	public static void main(String[] args) {
 		
 		log.info("hellow start");
 		System.out.println("Good Drive git game, go ahead");
-
+		log.info("hellow end");
 	}
 
 }
