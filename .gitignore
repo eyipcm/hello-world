@@ -3,5 +3,7 @@
 .classpath
 .project
 *.bak
+**/log
 **/logs
 /*.logs
+**/bak

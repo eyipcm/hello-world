@@ -15,24 +15,100 @@
 		</resources>
 	</build>
 	<dependencies>
+		<!-- https://logging.apache.org/log4j/2.x/faq.html -->
+		<!-- mandatory package log4j-api log4j-core -->
+		<!-- version 2.15.0 -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
-			<version>${log4j.version}</version>
+			<version>${log4j2.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>	
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>jcl-over-slf4j</artifactId>	
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
-			<version>${log4j.version}</version>
+			<version>${log4j2.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>	
+				</exclusion>
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-core</artifactId>	
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-to-slf4j</artifactId>	
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-1.2-api</artifactId>
+			<version>${log4j2.version}</version>
+		</dependency>
+		<!-- slf4j  -->
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-slf4j-impl</artifactId>
+		    <version>${log4j2.version}</version>
+		    <exclusions>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-to-slf4j</artifactId>	
+				</exclusion>
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-core</artifactId>	
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- common-logging jcl api -->
+		<dependency>
+		   <groupId>commons-logging</groupId>
+		   <artifactId>commons-logging</artifactId>
+		   <version>${common-logging.version}</version>
+		</dependency>
+		<dependency>
+		   <groupId>org.apache.logging.log4j</groupId>
+		   <artifactId>log4j-jcl</artifactId>
+		   <version>${log4j2.version}</version>
+		   <exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>jcl-over-slf4j</artifactId>	
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- java-util-logging jul api -->
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-jul</artifactId>
+		    <version>${log4j2.version}</version>
+		    <exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>jul-over-slf4j</artifactId>	
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<log4j.version>2.15.0</log4j.version>
-		<!-- 
-			<commons-logging.version>1.2</commons-logging.version>
-		-->
+		<log4j2.version>2.15.0</log4j2.version>
+		<common-logging.version>1.2</common-logging.version>
 	</properties>
 </project>
